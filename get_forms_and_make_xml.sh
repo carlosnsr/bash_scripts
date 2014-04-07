@@ -1,5 +1,7 @@
 #! /bin/bash
-forms=( "cl931s" "cl932s" "cl934s" "cl935s" "cl936s" "cl937s" "cl939s" "lg200s" "lg300s" "lg315s" )
+# forms=( "cl933s" )  # starting point
+# forms=( "cl931s" "cl932s" "cl934s" "cl935s" "cl936s" "cl937s" "cl939s" "lg200s" "lg300s" "lg315s" )  # first pass
+forms=( "lg210s" "lg220s" "lg230s" "lg260s" )  # second pass
 
 # Destination directories
 fmbs=fmbs
