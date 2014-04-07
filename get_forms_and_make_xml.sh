@@ -28,7 +28,7 @@ for i in "${forms[@]}"; do
 	called_forms="$res/forms_called_from_$i"
 	grep -in -e wcis_call_form -e wcis_security\.callform $xmls/$xml \
 		| sed "s/\([0-9]\+\).\+wcis_security\.callform('\?\([^',)]\+\)'\?.\+/\1: \2/i" \
-		| sed "s/\([0-9]\+\).\+wcis_call_form('\?\([^',)]\+\)'\?).\+/\1: \2/i" 
+		| sed "s/\([0-9]\+\).\+wcis_call_form('\?\([^',)]\+\)'\?).\+/\1: \2/i" \
 		> $called_forms
 	# delete the file if it is empty
 	if [ -e $called_forms -a ! -s $called_forms ]; then
