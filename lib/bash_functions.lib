@@ -1,7 +1,12 @@
 
 delete_if_empty() {
-	file=$1
+	file="$1"
+	failure_prompt="$2"
+	
 	if [ -e $file -a ! -s $file ]; then
+		if [ failure_prompt ]; then
+			echo $failure_prompt
+		fi
 		rm -f $file
 	fi
 }

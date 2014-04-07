@@ -11,6 +11,6 @@ for f in *.xml; do
 	# find the search terms for icd9
 	found="$res/found_in_$f"
 	grep -i -e '[^u]pda' -e 'icd' "$f" > $found
-	delete_if_empty $found
+	delete_if_empty $found "NOTE: $f does not contain the search terms"
 done
 

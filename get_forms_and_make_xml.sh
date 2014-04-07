@@ -35,6 +35,6 @@ for i in "${forms[@]}"; do
 		| sed "s/\([0-9]\+\).\+wcis_call_form('\?\([^',)]\+\)'\?).\+/\1: \2/i" \
 		| tr "[:upper:]" "[:lower:]" \
 		> $called_forms
-	delete_if_empty $called_forms
+	delete_if_empty $called_forms "NOTE: $i does not call any forms"
 done
 
