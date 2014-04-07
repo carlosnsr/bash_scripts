@@ -1,4 +1,6 @@
 #! /bin/bash
+source ~/bin/lib/bash_functions.lib
+
 # forms=( "cl933s" )  # starting point
 # forms=( "cl931s" "cl932s" "cl934s" "cl935s" "cl936s" "cl937s" "cl939s" "lg200s" "lg300s" "lg315s" )  # first pass
 forms=( "lg210s" "lg220s" "lg230s" "lg260s" )  # second pass
@@ -33,10 +35,6 @@ for i in "${forms[@]}"; do
 		| sed "s/\([0-9]\+\).\+wcis_call_form('\?\([^',)]\+\)'\?).\+/\1: \2/i" \
 		| tr "[:upper:]" "[:lower:]" \
 		> $called_forms
-	# delete the file if it is empty
-	if [ -e $called_forms -a ! -s $called_forms ]; then
-		echo "$i does not call any forms"
-		rm -f $called_forms
-	fi
+	delete_if_empty $called_forms
 done
 

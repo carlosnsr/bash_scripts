@@ -1,4 +1,5 @@
 #! /bin/bash
+source ~/bin/lib/bash_functions.lib
 
 res=results
 mkdir -p results
@@ -10,11 +11,6 @@ for f in *.xml; do
 	# find the search terms for icd9
 	found="$res/found_in_$f"
 	grep -i -e '[^u]pda' -e 'icd' "$f" > $found
-	
-	# delete the file if it is empty
-	if [ -e $found -a ! -s $found ]; then
-		echo "$f does not contain the search terms"
-		rm -f $found
-	fi
+	delete_if_empty $found
 done
 

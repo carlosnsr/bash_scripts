@@ -1,0 +1,8 @@
+
+delete_if_empty() {
+	file=$1
+	if [ -e $file -a ! -s $file ]; then
+		rm -f $file
+	fi
+}
+
